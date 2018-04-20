@@ -9,6 +9,7 @@ public class IRPF {
 
 	ArrayList<Rendimento> rendimentos = new ArrayList<Rendimento>();
 	ArrayList<Deducao> deducoes = new ArrayList<Deducao>();
+	ArrayList<Dependente> dependentes = new ArrayList();
 	
 	public boolean cadastrarRendimento(Rendimento r) {
 		Rendimento temp = consultarRendimento(r.descricao);
@@ -59,9 +60,26 @@ public class IRPF {
 		for (Deducao d : deducoes){
 			soma += d.getValor();
 		}
+		
+		for (Dependente dependente: dependentes) {
+			soma += dependente.getDeducao();
+		}
+		
 		return soma;
 	}
+	
+	public ArrayList<Dependente> getDependentes(){
+		return this.dependentes;
+	}
 
+	public void addDependente(Dependente dependente){
+		this.dependentes.add(dependente);
+	}
+	
+	public void setDependentes(ArrayList<Dependente> dependentes) {
+		this.dependentes = dependentes;
+	}
+	
 	public int numTotalDeducoes() {
 		int count = deducoes.size();
 		return count;
