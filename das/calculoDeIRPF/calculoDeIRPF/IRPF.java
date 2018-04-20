@@ -9,7 +9,7 @@ public class IRPF {
 
 	ArrayList<Rendimento> rendimentos = new ArrayList<Rendimento>();
 	ArrayList<Deducao> deducoes = new ArrayList<Deducao>();
-	ArrayList<Dependente> dependentes = new ArrayList();
+	ArrayList<Dependente> dependentes = new ArrayList<Dependente>();
 	
 	public boolean cadastrarRendimento(Rendimento r) {
 		Rendimento temp = consultarRendimento(r.descricao);
